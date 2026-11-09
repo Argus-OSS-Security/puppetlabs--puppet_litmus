@@ -1,23 +1,24 @@
 name: "ci"
 
-on:
-  push:
-    branches:
-      - "main"
-  pull_request:
-    branches:
-      - "main"
-  workflow_dispatch:
-    inputs:
-      pr_number:
-        description: "PR number to test (e.g. a fork PR, which gets no secrets via the normal pull_request trigger)"
-        required: false
-        type: string
-      ref:
-        description: "Branch or SHA to test (ignored if pr_number is set)"
-        required: false
-        type: string
-
+# Triggers intentionally disabled for Argus-OSS-Security.
+# on:
+#   push:
+#     branches:
+#       - "main"
+#   pull_request:
+#     branches:
+#       - "main"
+#   workflow_dispatch:
+#     inputs:
+#       pr_number:
+#         description: "PR number to test (e.g. a fork PR, which gets no secrets via the normal pull_request trigger)"
+#         required: false
+#         type: string
+#       ref:
+#         description: "Branch or SHA to test (ignored if pr_number is set)"
+#         required: false
+#         type: string
+# 
 env:
   CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
   BUNDLE_RUBYGEMS__RUBYGEMS__PUPPETCORE__PUPPET__COM: ${{ secrets.PUPPET_FORGE_TOKEN }}
